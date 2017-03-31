@@ -23,13 +23,13 @@
   <input id="stylistFirstName" name="stylistFirstName" type="text">
   <label for="stylistStatus">Status: FT, PT, NLE</label>
   <input id="stylistStatus" name="stylistStatus" type="text">
-  <button type="submit" class="btn btn-success">Add Category</button>
+  <button type="submit" class="btn btn-success">Add Stylist</button>
 </form>
 
 <h2>Add A New Client:</h2>
 
 <form action="/clients" method="post">
-  <label for="stylistId">Select a Stylist/label>
+  <label for="stylistId">Select a Stylist</label>
   <select id='stylistId' name='stylistId' type='text'>
     #foreach($stylist in $stylists)
       <option value="$stylist.getId()">$stylist.getStylistLastName()</option>
@@ -46,6 +46,6 @@
     <input id="clientFirstVisit" name="clientFirstVisit" type="text" class="form-control">
   </div>
 
-  <button type="submit" class="btn btn-success">Add Task</button>
+  <button type="submit" class="btn btn-success">Add Client</button>
 </form>
 <!--index.vtl-->
