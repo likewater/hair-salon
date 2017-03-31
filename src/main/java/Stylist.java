@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import org.sql2o.*;
 
@@ -23,5 +24,12 @@ public class Stylist {
 
   public String getStylistStatus() {
     return stylistStatus;
+  }
+
+  public static List<Stylist> all() {
+    String sql = "SELECT id, stylist_last_name, stylist_first_name, stylist_status FROM stylists";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Stylist.class);
+    }
   }
 }

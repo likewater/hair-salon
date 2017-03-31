@@ -4,6 +4,11 @@ import static org.junit.Assert.*;
 
 public class ClientTest {
 
+  @Before
+  public void setUp() {
+    DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon_test", null, null);
+  }
+
   @Test
   public void ClientInstantiatesCorrectly_true() {
     Client myClient = new Client("Simms", "Sally", "12/12/2016", "11/11/2005");
@@ -32,5 +37,13 @@ public class ClientTest {
   public void getClientFirstVisit_returnsClientFirstVisit_string() {
     Client myClient = new Client("Simms", "Sally", "12/12/2016", "11/11/2005");
     assertEquals("11/11/2005", myClient.getClientFirstVisit());
+  }
+
+  @After
+  public void tearDown() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "DELETE FROM clients *;";
+      con.createQuery(sql).executeUpdate();
+    }
   }
 }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import org.sql2o.*;
 
@@ -31,4 +32,12 @@ public class Client {
   public String getClientFirstVisit() {
     return clientFirstVisit;
   }
+
+  public static List<Client> all() {
+    String sql = "SELECT id, client_last_name, client_first_name, client_last_visit, client_first_visit FROM clients";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Client.class);
+    }
+  }
+
 }
