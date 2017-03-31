@@ -2,7 +2,7 @@
 
 #if ($clients)
   <ul>
-    #foreach ($clientin $clients)
+    #foreach ($client in $clients)
       <li><a href="/clients/$client.getId()">$client.getClientLastName()</a></li>
     #end
   </ul>

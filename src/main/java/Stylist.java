@@ -32,4 +32,53 @@ public class Stylist {
       return con.createQuery(sql).executeAndFetch(Stylist.class);
     }
   }
+
+  public int getId() {
+    return id;
+  }
+
+  public static Stylist find(int id) {
+     try(Connection con = DB.sql2o.open()) {
+       String sql = "SELECT * FROM stylists where id=:id";
+       Stylist stylist = con.createQuery(sql)
+         .addParameter("id", id)
+         .executeAndFetchFirst(Stylist.class);
+       return stylist;
+     }
+   }
+
+   public List<Stylist> getStylists() {
+   try(Connection con = DB.sql2o.open()) {
+     String sql = "SELECT * FROM stylists where stylistId=:id";
+     return con.createQuery(sql)
+       .addParameter("id", this.id)
+       .executeAndFetch(Stylist.class);//changed typo here
+   }
+ }
+
+   @Override
+   public boolean equals(Object otherStylist) {
+     if (!(otherStylist instanceof Stylist)) {
+       return false;
+     } else {
+       Stylist newStylist = (Stylist) otherStylist;
+       return this.getStylistLastName().equals(newStylist.getStylistLastName()) &&
+              this.getStylistFirstName().equals(newStylist.getStylistFirstName()) &&
+              this.getStylistStatus().equals(newStylist.getStylistStatus()) &&
+              this.getId() == newStylist.getId();
+     }
+ }
+
+  public void save() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO stylists(stylist_last_name, stylist_first_name, stylist_status) VALUES (:stylist_last_name, :stylist_first_name, :stylist_status)";
+      this.id = (int) con.createQuery(sql, true)
+        .addParameter("stylist_last_name", this.stylistLastName)
+        .addParameter("stylist_first_name", this.stylistFirstName)
+        .addParameter("stylist_status", this.stylistStatus)
+        .executeUpdate()
+        .getKey();
+    }
+  }
+
 }
