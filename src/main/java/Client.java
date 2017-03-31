@@ -9,6 +9,7 @@ public class Client {
   private String clientFirstVisit;
   private int id;
   private int stylistId;
+  private boolean completed;
 
 
   public Client(String clientLastName, String clientFirstName, String clientLastVisit, String clientFirstVisit, int stylistId) {
@@ -65,7 +66,7 @@ public class Client {
              this.getClientFirstName().equals(newClient.getClientFirstName()) &&
              this.getClientLastVisit().equals(newClient.getClientLastVisit()) &&
              this.getClientFirstVisit().equals(newClient.getClientFirstVisit()) &&
-             this.getStylisId() == newClient.getStylistId(); &&
+             this.getStylistId() == newClient.getStylistId() &&
              this.getId() == newClient.getId();
     }
   }
