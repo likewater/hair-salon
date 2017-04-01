@@ -1,6 +1,8 @@
 import org.sql2o.*;
 import org.junit.*;
 import static org.junit.Assert.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StylistTest {
 
@@ -28,7 +30,7 @@ public class StylistTest {
   }
 
   @Test
-  public void getStylistStatusreturnsStylistLastStatus_string() {
+  public void getStylistStatus_returnsStylistStatus_string() {
     Stylist myStylist = new Stylist("Ritchie", "Danny", "FT");
     assertEquals("FT", myStylist.getStylistStatus());
   }
@@ -36,7 +38,7 @@ public class StylistTest {
   // @Test
   // public void getAll_returnsIntegerAmount_integer() {
   //   Stylist myStylist = new Stylist("Ritchie", "Danny", "FT");
-  //   assertEquals(4, myStylist.all().size());
+  //   assertEquals(3, myStylist.all().size());
   // }
 
   @After

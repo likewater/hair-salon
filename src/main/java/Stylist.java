@@ -47,12 +47,12 @@ public class Stylist {
      }
    }
 
-   public List<Stylist> getStylists() {
+   public List<Client> getClients() {
    try(Connection con = DB.sql2o.open()) {
-     String sql = "SELECT * FROM stylists where stylistId=:id";
+     String sql = "SELECT * FROM clients where stylistId=:id";
      return con.createQuery(sql)
        .addParameter("id", this.id)
-       .executeAndFetch(Stylist.class);//changed typo here
+       .executeAndFetch(Client.class);//changed typo here
    }
  }
 

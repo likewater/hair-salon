@@ -66,8 +66,9 @@ public class Client {
              this.getClientFirstName().equals(newClient.getClientFirstName()) &&
              this.getClientLastVisit().equals(newClient.getClientLastVisit()) &&
              this.getClientFirstVisit().equals(newClient.getClientFirstVisit()) &&
-             this.getStylistId() == newClient.getStylistId() &&
-             this.getId() == newClient.getId();
+             this.getId() == newClient.getId() &&
+             this.getStylistId() == newClient.getStylistId();
+
     }
   }
 
