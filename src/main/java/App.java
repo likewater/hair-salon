@@ -18,14 +18,14 @@ public class App {
     get("stylists/:id/clients/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
-      model.put("stylist", stylist);
+      //model.put("stylist", stylist);
       model.put("template", "templates/stylist-clients-form.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
     get("/clients", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      model.put("clients", Client.all());
+      //model.put("clients", Client.all());
       model.put("template", "templates/clients.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -40,7 +40,7 @@ public class App {
       //need to define some variables here
       Client newClient = new Client(clientLastName, clientFirstName, clientLastVisit, clientFirstVisit, stylist.getId());
       newClient.save();
-      model.put("stylist", stylist);
+      //model.put("stylist", stylist);
       model.put("template", "templates/stylist-client-success.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -59,7 +59,7 @@ public class App {
     get("/clients/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Client client = Client.find(Integer.parseInt(request.params(":id")));
-      model.put("client", client);
+      //model.put("client", client);
       model.put("template", "templates/client.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -72,7 +72,7 @@ public class App {
 
     get("/stylists", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      model.put("stylists", Stylist.all());
+      //model.put("stylists", Stylist.all());
       model.put("template", "templates/stylists.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -80,7 +80,7 @@ public class App {
     get("/stylists/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
-      model.put("stylist", stylist);
+      //model.put("stylist", stylist);
       model.put("template", "templates/stylist.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
