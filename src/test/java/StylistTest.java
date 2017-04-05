@@ -34,18 +34,31 @@ public class StylistTest {
     Stylist myStylist = new Stylist("Ritchie", "Danny", "FT");
     assertEquals("FT", myStylist.getStylistStatus());
   }
-  //need to add data to DB to test
-  // @Test
-  // public void getAll_returnsIntegerAmount_integer() {
-  //   Stylist myStylist = new Stylist("Ritchie", "Danny", "FT");
-  //   assertEquals(3, myStylist.all().size());
+
+  @Test
+   public void getId_stylistInstantiateWithAnId_1() {
+     Stylist myStylist = new Stylist("Ritchie", "Danny", "FT");
+     myStylist.save();
+     assertTrue(myStylist.getId() > 0);
+   }
+
+  //  @Test
+  //  public void all_returnsAllInstancesOfStylist_true() {
+  //    Stylist firstStylist = new Stylist("Ritchie", "Danny", "FT");
+  //    firstStylist.save();
+  //    Stylist secondStylist = new Stylist("Ritchie", "Danny", "FT");
+  //    secondStylist.save();
+  //    assertEquals(true, Stylist.all().get(1).equals(firstStylist));
+  //    assertEquals(true, Stylist.all().get(2).equals(secondStylist));
   // }
 
   @After
   public void tearDown() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "DELETE FROM stylists *;";
-      con.createQuery(sql).executeUpdate();
+      String deleteStylistsQuery = "DELETE FROM stylists *;";
+      String deleteClientsQuery = "DELETE FROM clients *;";
+      con.createQuery(deleteStylistsQuery).executeUpdate();
+      con.createQuery(deleteClientsQuery).executeUpdate();
     }
   }
 

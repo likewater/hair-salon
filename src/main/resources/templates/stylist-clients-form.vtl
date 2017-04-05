@@ -1,8 +1,7 @@
-<h1>Add a Client to $stylist.getStylistLastName()</h1>
-
+<!--stylists-client-form.vtl-->
+<h1>Add a Client to $stylist.getStylistLastName() Stable</h1>
 <form action="/clients" method="post">
   <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
-
   <div class="form-group">
     <label for="clientLastName">Last Name</label>
     <input id="clientLastName" name="clientLastName" type="text" class="form-control">
@@ -13,6 +12,6 @@
     <label for="clientFirstVisit">First Visit</label>
     <input id="clientFirstVisit" name="clientFirstVisit" type="text" class="form-control">
   </div>
-
   <button type="submit" class="btn btn-success">Add Client</button>
 </form>
+<!--stylists-client-form.vtl-->

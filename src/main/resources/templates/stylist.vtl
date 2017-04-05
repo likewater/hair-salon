@@ -1,10 +1,10 @@
-<h1>$stylist.getName() clients:</h1>
-
+<!--stylist-->
+<h1>$stylist.getStylistLastName() clients:</h1>
 <ul>
   #foreach($client in $stylist.getClients())
    <li>$client.getClientLastName()</li>
   #end
 </ul>
-
-<a href="/stylists/$stylist.getId()/clients">Add a new client</a>
-<a href="/stylists">All stylists</a>
+<p><a href="/stylists/$stylist.getId()/clients/new">Add a new client</a></p><br>
+<p><a href="/stylists">All stylists</a></p>
+<!--stylist-->

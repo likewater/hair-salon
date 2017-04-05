@@ -1,7 +1,9 @@
+<!--stylists.vtl-->
 <h1>All Stylists</h1>
 <ul>
   #foreach ($stylist in $stylists)
-    <li><a href="/stylists/$stylist.getId()">$stylist.getStylistLastName()</a></li>
+    <li><a href="/stylists/$stylist.getId()">$stylist.getStylistLastName(), $stylist.getStylistFirstName(), $stylist.getStylistStatus()</a></li>
   #end
 </ul>
-<a href="/stylists/new">Add New Stylist</a>
+<p><a href="/stylists/new">Add New Stylist</a></p>
+<!--stylists.vtl-->
