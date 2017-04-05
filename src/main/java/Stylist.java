@@ -7,18 +7,17 @@ public class Stylist {
   private String stylistFirstName;
   private String stylistStatus;
   private int id;
-  private static List<Stylist> stylists = new ArrayList<Stylist>();
-  private List<Client> clients;
+  //private static List<Stylist> stylists = new ArrayList<Stylist>();
+  //private List<Client> clients;
   //private static ArrayList<Team> team = new ArrayList<Team>();
 
   public Stylist(String stylistLastName, String stylistFirstName, String stylistStatus) {
     this.stylistLastName = stylistLastName;
     this.stylistFirstName = stylistFirstName;
     this.stylistStatus = stylistStatus;
-    this.id = stylists.size();
-    this.clients = new ArrayList<Client>();
-    stylists.add(this);
-
+    // this.id = stylists.size();
+    // this.clients = new ArrayList<Client>();
+    // stylists.add(this);
   }
 
   public String getStylistLastName() {
