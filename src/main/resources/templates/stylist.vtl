@@ -10,7 +10,6 @@
 </ul><br>
 <p><a class="headerLink" href="/stylists/$stylist.getId()/clients/new">Add a new client to the stable.</a></p><br>
 <h1>$stylist.getName()</h1>
-<!--<h2> Belongs to: $stylist.getName() stable.</h2>-->
 <h3>Edit Stylist:</h3>
 <form action="/stylists/$stylist.getId()" method="post">
   <label for="name">Name</label>
@@ -21,16 +20,8 @@
 <form action="/stylists/$stylist.getId()/delete" method="post">
   <button type="submit" class="btn btn-danger" id="delete-stylist">Delete Stylist</button>
 </form>
-
-
-
-
-<!-- <form action="/stylists" method="delete">
-  <button type="submit" class="btn btn-danger" id="delete-stylist">Delete Stylist</button>
-</form> -->
 <br>
 <p><a class="headerLink" href="/stylists">All stylists</a></p><br>
 <p><a class="headerLink" href="/">Back To Welcome Page</a></p>
-<!--<p><a href="/clients">All Clients</a></p>-->
 </div>
 <!--stylist-->
