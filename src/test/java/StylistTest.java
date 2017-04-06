@@ -32,12 +32,20 @@ public class StylistTest {
 
    @Test
    public void all_returnsAllInstancesOfStylist_true() {
-     Stylist firstStylist = new Stylist("Danny Ritchie");
-     firstStylist.save();
-     Stylist secondStylist = new Stylist("Danny Ritchie");
-     secondStylist.save();
-     assertEquals(true, Stylist.all().get(0).equals(firstStylist));
-     assertEquals(true, Stylist.all().get(1).equals(secondStylist));
+    Stylist firstStylist = new Stylist("Danny Ritchie");
+    firstStylist.save();
+    Stylist secondStylist = new Stylist("Danny Ritchie");
+    secondStylist.save();
+    assertEquals(true, Stylist.all().get(0).equals(firstStylist));
+    assertEquals(true, Stylist.all().get(1).equals(secondStylist));
+  }
+
+  @Test
+  public void update_updatesStylistName_true() {
+    Stylist myStylist = new Stylist("Fawn Henry");
+    myStylist.save();
+    myStylist.update("Dawn Henry");
+    assertEquals("Dawn Henry", Stylist.find(myStylist.getId()).getName());
   }
 
   @After
