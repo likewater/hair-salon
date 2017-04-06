@@ -7,5 +7,14 @@
   #end
 </ul>
 <p><a href="/stylists/$stylist.getId()/clients/new">Add a new client</a></p><br>
-<p><a href="/stylists">All stylists</a></p>
+<h1>$stylist.getName()</h1>
+<!--<h2> Belongs to: $stylist.getName() stable.</h2>-->
+<h2>Edit Stylist:</h2>
+<form action="/stylists/$stylist.getId()" method="post">
+  <label for="name">Name</label>
+  <input id="name" name="name" type="text">
+  <button type="submit" class="btn btn-info">Update Client</button>
+</form>
+<p><a href="/stylists">All stylists</a></p><br>
+<!--<p><a href="/clients">All Clients</a></p>-->
 <!--stylist-->
