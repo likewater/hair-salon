@@ -131,7 +131,8 @@ public class App {
       //Stylist stylist = Stylist.find(stylist.getId());
       stylist.delete();
       //model.put("stylist", stylist);
-      model.put("template", "templates/stylist.vtl");
+      model.put("template", "templates/stylist-success.vtl");
+      //model.put("template", "templates/stylist.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -141,7 +142,8 @@ public class App {
       Stylist stylist = Stylist.find(client.getStylistId());
       client.delete();
       model.put("stylist", stylist);
-      model.put("template", "templates/client.vtl");
+      model.put("template", "templates/stylist-client-success.vtl");
+      //model.put("template", "templates/client.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
