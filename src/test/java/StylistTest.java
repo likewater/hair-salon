@@ -20,7 +20,7 @@ public class StylistTest {
   @Test
   public void getStylistName_returnsStylistName_string() {
     Stylist myStylist = new Stylist("Danny Ritchie");
-    assertEquals("Danny Ritchie", myStylist.getStylistLastName());
+    assertEquals("Danny Ritchie", myStylist.getName());
   }
 
   @Test
@@ -30,15 +30,15 @@ public class StylistTest {
      assertTrue(myStylist.getId() > 0);
    }
 
-  //  @Test
-  //  public void all_returnsAllInstancesOfStylist_true() {
-  //    Stylist firstStylist = new Stylist("Ritchie", "Danny", "FT");
-  //    firstStylist.save();
-  //    Stylist secondStylist = new Stylist("Ritchie", "Danny", "FT");
-  //    secondStylist.save();
-  //    assertEquals(true, Stylist.all().get(1).equals(firstStylist));
-  //    assertEquals(true, Stylist.all().get(2).equals(secondStylist));
-  // }
+   @Test
+   public void all_returnsAllInstancesOfStylist_true() {
+     Stylist firstStylist = new Stylist("Danny Ritchie");
+     firstStylist.save();
+     Stylist secondStylist = new Stylist("Danny Ritchie");
+     secondStylist.save();
+     assertEquals(true, Stylist.all().get(0).equals(firstStylist));
+     assertEquals(true, Stylist.all().get(1).equals(secondStylist));
+  }
 
   @After
   public void tearDown() {

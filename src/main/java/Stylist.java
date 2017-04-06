@@ -17,7 +17,7 @@ public class Stylist {
   }
 
   public String getName() {
-    return stylistLastName;
+    return name;
   }
 
   public static List<Stylist> all() {
@@ -57,7 +57,7 @@ public class Stylist {
      } else {
        Stylist newStylist = (Stylist) otherStylist;
        return this.getId() == newStylist.getId() &&
-              this.getStylistLastName().equals(newStylist.getStylistLastName());
+              this.getName().equals(newStylist.getName());
      }
  }
 

@@ -18,7 +18,7 @@ public class ClientTest {
   @Test
   public void getClientName_returnsClientName_string() {
     Client myClient = new Client("Sally Simms", 1);
-    assertEquals("Simms", myClient.getClientLastName());
+    assertEquals("Sally Simms", myClient.getName());
   }
 
   @After

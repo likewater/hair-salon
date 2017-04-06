@@ -15,7 +15,7 @@ public class Client {
     completed = false;
   }
 
-  public String getname() {
+  public String getName() {
     return name;
   }
 
