@@ -4,6 +4,7 @@
   #foreach($client in $stylist.getClients())
    <!--<li>$client.getName()</li>-->
    <li><a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</a></li>
+   <link rel='stylesheet' href='/app.css'>
   #end
 </ul>
 <p><a href="/stylists/$stylist.getId()/clients/new">Add a new client</a></p><br>
