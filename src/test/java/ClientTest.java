@@ -21,6 +21,14 @@ public class ClientTest {
     assertEquals("Sally Simms", myClient.getName());
   }
 
+  @Test
+  public void update_updatesClientName_true() {
+    Client myClient = new Client("Sally Simms", 1);
+    myClient.save();
+    myClient.update("Sally Samms");
+    assertEquals("Sally Samms", Client.find(myClient.getId()).getName());
+  }
+
   @After
   public void tearDown() {
     try(Connection con = DB.sql2o.open()) {
