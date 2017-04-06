@@ -49,6 +49,4 @@ public class StylistTest {
       con.createQuery(deleteClientsQuery).executeUpdate();
     }
   }
-
-
 }
