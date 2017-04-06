@@ -1,8 +1,8 @@
 import spark.ModelAndView;
-import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
-import java.util.HashMap;
+import spark.template.velocity.VelocityTemplateEngine;
 import java.util.Map;
+import java.util.HashMap;
 
 public class App {
   public static void main(String[] args) {
@@ -33,12 +33,9 @@ public class App {
     post("/clients", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = Stylist.find(Integer.parseInt(request.queryParams("stylistId")));
-      String clientLastName = request.queryParams("clientLastName");
-      String clientFirstName = request.queryParams("clientFirstName");
-      String clientLastVisit = request.queryParams("clientLastVisit");
-      String clientFirstVisit = request.queryParams("clientFirstVisit");
+      String name = request.queryParams("name");
       //need to define some variables here
-      Client newClient = new Client(clientLastName, clientFirstName, clientLastVisit, clientFirstVisit, stylist.getId());
+      Client newClient = new Client(name, stylist.getId());
       newClient.save();
       //model.put("stylist", stylist);
       model.put("template", "templates/stylist-client-success.vtl");
@@ -61,10 +58,8 @@ public class App {
 
     post("/stylists", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      String stylistLastName = request.queryParams("stylistLastName");
-      String stylistFirstName = request.queryParams("stylistFirstName");
-      String stylistStatus = request.queryParams("stylistStatus");
-      Stylist newStylist = new Stylist(stylistLastName, stylistFirstName, stylistStatus);
+      String name = request.queryParams("name");
+      Stylist newStylist = new Stylist(name);
       newStylist.save();
       model.put("template", "templates/stylist-success.vtl");
       return new ModelAndView(model, layout);

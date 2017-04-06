@@ -1,8 +1,8 @@
 <!--stylist-->
-<h1>$stylist.getStylistLastName() clients:</h1>
+<h1>$stylist.getName() clients:</h1>
 <ul>
   #foreach($client in $stylist.getClients())
-   <li>$client.getClientLastName()</li>
+   <li>$client.getName()</li>
   #end
 </ul>
 <p><a href="/stylists/$stylist.getId()/clients/new">Add a new client</a></p><br>

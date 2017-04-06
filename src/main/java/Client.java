@@ -1,40 +1,22 @@
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 import org.sql2o.*;
 
 public class Client {
-  private String clientLastName;
-  private String clientFirstName;
-  private String clientLastVisit;
-  private String clientFirstVisit;
+  private String name;
   private int id;
   private int stylistId;
   private boolean completed;
 
 
-  public Client(String clientLastName, String clientFirstName, String clientLastVisit, String clientFirstVisit, int stylistId) {
-    this.clientLastName = clientLastName;
-    this.clientFirstName = clientFirstName;
-    this.clientLastVisit = clientLastVisit;
-    this.clientFirstVisit = clientFirstVisit;
+  public Client(String name, int stylistId) {
+    this.name = name;
     this.stylistId = stylistId;
     completed = false;
   }
 
-  public String getClientLastName() {
-    return clientLastName;
-  }
-
-  public String getClientFirstName() {
-    return clientFirstName;
-  }
-
-  public String getClientLastVisit() {
-    return clientLastVisit;
-  }
-
-  public String getClientFirstVisit() {
-    return clientFirstVisit;
+  public String getname() {
+    return name;
   }
 
   public boolean isCompleted() {
@@ -50,7 +32,7 @@ public class Client {
   }
 
   public static List<Client> all() {
-    String sql = "SELECT id, client_last_name, client_first_name, client_last_visit, client_first_visit, stylistId FROM clients";
+    String sql = "SELECT id, name, stylistId FROM clients";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Client.class);
     }
@@ -62,11 +44,8 @@ public class Client {
       return false;
     } else {
       Client newClient = (Client) otherClient;
-      return this.getClientLastName().equals(newClient.getClientLastName()) &&
-             this.getClientFirstName().equals(newClient.getClientFirstName()) &&
-             this.getClientLastVisit().equals(newClient.getClientLastVisit()) &&
-             this.getClientFirstVisit().equals(newClient.getClientFirstVisit()) &&
-             this.getId() == newClient.getId() &&
+      return this.getId() == newClient.getId() &&
+             this.getName().equals(newClient.getName()) &&
              this.getStylistId() == newClient.getStylistId();
 
     }
@@ -74,12 +53,9 @@ public class Client {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO clients(client_last_name, client_first_name, client_last_visit, client_first_visit, stylistId) VALUES (:client_last_name, :client_first_name, :client_last_visit, :client_first_visit, :stylistId)";
+      String sql = "INSERT INTO clients(name, stylistId) VALUES (:name, :stylistId)";
       this.id = (int) con.createQuery(sql, true)
-        .addParameter("client_last_name", this.clientLastName)
-        .addParameter("client_first_name", this.clientFirstName)
-        .addParameter("client_last_visit", this.clientLastVisit)
-        .addParameter("client_first_visit", this.clientFirstVisit)
+        .addParameter("name", this.name)
         .addParameter("stylistId", this.stylistId)
         .executeUpdate()
         .getKey();

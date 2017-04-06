@@ -1,39 +1,27 @@
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 import org.sql2o.*;
 
 public class Stylist {
-  private String stylistLastName;
-  private String stylistFirstName;
-  private String stylistStatus;
+  private String name;
   private int id;
   //private static List<Stylist> stylists = new ArrayList<Stylist>();
   //private List<Client> clients;
   //private static ArrayList<Team> team = new ArrayList<Team>();
 
-  public Stylist(String stylistLastName, String stylistFirstName, String stylistStatus) {
-    this.stylistLastName = stylistLastName;
-    this.stylistFirstName = stylistFirstName;
-    this.stylistStatus = stylistStatus;
+  public Stylist(String name) {
+    this.name = name;
     // this.id = stylists.size();
     // this.clients = new ArrayList<Client>();
     // stylists.add(this);
   }
 
-  public String getStylistLastName() {
+  public String getName() {
     return stylistLastName;
   }
 
-  public String getStylistFirstName() {
-    return stylistFirstName;
-  }
-
-  public String getStylistStatus() {
-    return stylistStatus;
-  }
-
   public static List<Stylist> all() {
-    String sql = "SELECT id, stylist_last_name, stylist_first_name, stylist_status FROM stylists";
+    String sql = "SELECT id, name FROM stylists";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Stylist.class);
     }
@@ -68,20 +56,16 @@ public class Stylist {
        return false;
      } else {
        Stylist newStylist = (Stylist) otherStylist;
-       return this.getStylistLastName().equals(newStylist.getStylistLastName()) &&
-              this.getStylistFirstName().equals(newStylist.getStylistFirstName()) &&
-              this.getStylistStatus().equals(newStylist.getStylistStatus()) &&
-              this.getId() == newStylist.getId();
+       return this.getId() == newStylist.getId() &&
+              this.getStylistLastName().equals(newStylist.getStylistLastName());
      }
  }
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO stylists(stylist_last_name, stylist_first_name, stylist_status) VALUES (:stylist_last_name, :stylist_first_name, :stylist_status)";
+      String sql = "INSERT INTO stylists(name) VALUES (:name)";
       this.id = (int) con.createQuery(sql, true)
-        .addParameter("stylist_last_name", this.stylistLastName)
-        .addParameter("stylist_first_name", this.stylistFirstName)
-        .addParameter("stylist_status", this.stylistStatus)
+        .addParameter("name", this.name)
         .executeUpdate()
         .getKey();
     }
