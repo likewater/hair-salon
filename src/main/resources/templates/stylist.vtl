@@ -13,8 +13,20 @@
 <form action="/stylists/$stylist.getId()" method="post">
   <label for="name">Name</label>
   <input id="name" name="name" type="text">
-  <button type="submit" class="btn btn-info">Update Client</button>
+  <button type="submit" class="btn btn-info">Update Stylist</button>
 </form>
+<br>
+<form action="/stylists/$stylist.getId()/delete" method="post">
+  <button type="submit" class="btn btn-danger" id="delete-stylist">Delete Client</button>
+</form>
+
+
+
+
+<!-- <form action="/stylists" method="delete">
+  <button type="submit" class="btn btn-danger" id="delete-stylist">Delete Stylist</button>
+</form> -->
+<br>
 <p><a href="/stylists">All stylists</a></p><br>
 <!--<p><a href="/clients">All Clients</a></p>-->
 <!--stylist-->

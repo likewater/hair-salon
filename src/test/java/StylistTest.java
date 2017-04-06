@@ -48,6 +48,15 @@ public class StylistTest {
     assertEquals("Dawn Henry", Stylist.find(myStylist.getId()).getName());
   }
 
+  @Test
+  public void delete_deletesStylist_true() {
+    Stylist myStylist = new Stylist("Fawn Henry");
+    myStylist.save();
+    int myStylistId = myStylist.getId();
+    myStylist.delete();
+    assertEquals(null, Stylist.find(myStylistId));
+  }
+
   @After
   public void tearDown() {
     try(Connection con = DB.sql2o.open()) {
