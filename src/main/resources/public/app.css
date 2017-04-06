@@ -1,0 +1,42 @@
+.container {
+  background-color: #FFE8E8;
+  }
+
+.header {
+  background-color: #36444C;
+  color: #FFFFFF;
+  padding: 15px;
+  margin: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+p {
+  padding-left: 25px;
+  font-size: 18px;
+}
+
+.headerLink {
+  padding-right: 10px;
+  padding-left: 25px;
+  font-size: 18px;
+  color: #FFFFFF;
+}
+
+#name {
+    color: #000000;
+}
+
+a:hover {
+  color: #FFE8E8;
+}
+
+button {
+  margin-bottom: 7px;
+}

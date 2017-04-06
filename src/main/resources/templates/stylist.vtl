@@ -1,16 +1,17 @@
 <!--stylist-->
-<h1>$stylist.getName() clients:</h1>
+<h1>$stylist.getName() Clients:</h1>
+<div class="header">
 <ul>
   #foreach($client in $stylist.getClients())
    <!--<li>$client.getName()</li>-->
-   <li><a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</a></li>
+   <li><a class="headerLink"  href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</a></li>
    <link rel='stylesheet' href='/app.css'>
   #end
-</ul>
-<p><a href="/stylists/$stylist.getId()/clients/new">Add a new client</a></p><br>
+</ul><br>
+<p><a class="headerLink" href="/stylists/$stylist.getId()/clients/new">Add a new client to the stable.</a></p><br>
 <h1>$stylist.getName()</h1>
 <!--<h2> Belongs to: $stylist.getName() stable.</h2>-->
-<h2>Edit Stylist:</h2>
+<h3>Edit Stylist:</h3>
 <form action="/stylists/$stylist.getId()" method="post">
   <label for="name">Name</label>
   <input id="name" name="name" type="text">
@@ -18,7 +19,7 @@
 </form>
 <br>
 <form action="/stylists/$stylist.getId()/delete" method="post">
-  <button type="submit" class="btn btn-danger" id="delete-stylist">Delete Client</button>
+  <button type="submit" class="btn btn-danger" id="delete-stylist">Delete Stylist</button>
 </form>
 
 
@@ -28,6 +29,8 @@
   <button type="submit" class="btn btn-danger" id="delete-stylist">Delete Stylist</button>
 </form> -->
 <br>
-<p><a href="/stylists">All stylists</a></p><br>
+<p><a class="headerLink" href="/stylists">All stylists</a></p><br>
+<p><a class="headerLink" href="/">Back To Welcome Page</a></p>
 <!--<p><a href="/clients">All Clients</a></p>-->
+</div>
 <!--stylist-->

@@ -1,9 +1,13 @@
 <!--stylists.vtl-->
-<h1>All Stylists</h1>
+<h1>ALL STYLISTS</h1>
+<h2>Click on a stylist</h2>
+<div class="header">
 <ul>
   #foreach ($stylist in $stylists)
-    <li><a href="/stylists/$stylist.getId()">$stylist.getName()</a></li>
+    <li><a class="headerLink" href="/stylists/$stylist.getId()">$stylist.getName()</a></li>
   #end
 </ul>
-<p><a href="/stylists/new">Add New Stylist</a></p>
+<p><a class="headerLink" href="/stylists/new">Add New Stylist</a></p>
+<p><a class="headerLink" href="/">Back To Welcome Page</a></p>
+</div>
 <!--stylists.vtl-->

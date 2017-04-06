@@ -1,5 +1,6 @@
 <!--stylists-client-form.vtl-->
-<h1>Add a Client to $stylist.getName() Stable</h1>
+<h1>Add A Client To The $stylist.getName() Stable</h1>
+<div class="header">
 <form action="/clients" method="post">
   <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
   <div class="form-group">
@@ -8,4 +9,5 @@
   </div>
   <button type="submit" class="btn btn-success">Add Client</button>
 </form>
+</div>
 <!--stylists-client-form.vtl-->

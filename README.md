@@ -1,22 +1,19 @@
 # _HAIR SALON_
 
 #### A Java based application that utilizes Spark, jUnit, Git Hub, and a DB.
+#### A Basic Hair Salon Admin Portal
 
 ### By Blake Womack
 
 #### User Instructions:
 
-* Follow the prompts.
-
-### Specifications
-
-| Behavior |   Input   |   Output   |
-|----------|:---------:|:----------:|
-| One party guest at base price. | 1 | 16 |
-| Add additional cost of dining types per guest. | breakfast, lunch, dinner, fine dining | 0, 0, 2, 5 |
-| Add additional cost of full bar per guest. | 1 | 10 |
-| Add additional cost of entertainment to entire party. | comedian, chamber group, rock, jazz, mitzvah mc, none| 300, 1200, 1500, 1000, 700, 0 |
-| Add above applicable costs. | all relevant costs | estimate |
+* Clone the repository to your desktop
+* Start Postgres
+* In psql create a database called hair_salon
+* Use the hair_salon.sql file to restore tables
+* In bash, run this: $ psql hair_salon < hair_salon.sql
+* In psql, run this: CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
+* Once up and running, follow the prompts, add Stylists then Clients.
 
 ### This is the initial release (1.0).
 

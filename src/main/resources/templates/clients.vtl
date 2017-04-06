@@ -1,13 +1,17 @@
 <!--clients.vtl-->
-<h1>Client List!</h1>
+<h1>CLIENT LIST!</h1>
+<div class="header">
 #if ($clients)
   <ul>
     #foreach ($client in $clients)
-      <li><a href="/clients/$client.getId()">$client.getName()</a></li>
+      <!-- <li><a class="headerLink" href="/clients/$client.getId()">$client.getName()</a></li> -->
+      <li>$client.getName()</li>
     #end
   </ul>
 #else
   <p>No Clients!</p>
 #end
-<a href="/clients/new">Add New Client</a>
+<br>
+<p><a class="headerLink" href="/">Back To Welcome Page</a></p>
+</div>
 <!--clients.vtl-->
